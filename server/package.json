@@ -1,0 +1,25 @@
+{
+	"name": "travel_log",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/Juminhark/travel_log.git",
+	"author": "Ju minhark <wnalsgkr@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"start": "nodemon src/index.js --exec babel-node"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"helmet": "^3.23.3",
+		"mongoose": "^5.9.26",
+		"morgan": "^1.10.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.10.5",
+		"@babel/node": "^7.10.5",
+		"@babel/preset-env": "^7.10.4",
+		"nodemon": "^2.0.4"
+	}
+}

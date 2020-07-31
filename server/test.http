@@ -1,0 +1,12 @@
+POST http://localhost:4000/api/logs HTTP/1.1
+content-type: application/json
+
+{
+    "title": "sample test",
+    "comments": "The Blue House",
+    "latitude": 37.585090,
+    "longitude": 126.974914,
+    "rating": 8,
+    "Image": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Korea-Seoul-Blue_House_%28Cheongwadae%29_Reception_Center_0688%269-07_cropped.jpg",
+    "visitDate": "2020-07-30T08:24:28.156Z"
+}
