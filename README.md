@@ -14,7 +14,7 @@
   - Create a new log entry
 - [x] GET /api/logs
   - List all log entries
-- [ ] Seyup Client
+- [ ] Setup Client
 - [ ] Create Form to add a new entry
 - [ ] Setup Map SDK on client
 - [ ] List all log entries on map
