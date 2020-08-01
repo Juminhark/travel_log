@@ -23,13 +23,12 @@ const App = () => {
 	}, []);
 
 	const showAddMarkerPopup = (event) => {
-		const [latitude, longitude] = event.lngLat;
+		const [longitude, latitude] = event.lngLat;
 
 		setAddEntryLocation({
 			latitude,
 			longitude,
 		});
-		console.log(addEntryLocation);
 	};
 
 	return (
@@ -83,7 +82,7 @@ const App = () => {
 					) : null}
 				</>
 			))}
-			{/* {addEntryLocation ? (
+			{addEntryLocation ? (
 				<>
 					<Marker
 						latitude={addEntryLocation.latitude}
@@ -105,14 +104,14 @@ const App = () => {
 						closeOnClick={false}
 						dynamicPosition={true}
 						onClose={() => setAddEntryLocation(null)}
-						anchor="top"
+						anchor="bottom"
 					>
 						<div>
 							<h3>Add entry</h3>
 						</div>
 					</Popup>
 				</>
-			) : null} */}
+			) : null}
 		</ReactMapGL>
 	);
 };
