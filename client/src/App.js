@@ -45,6 +45,8 @@ const App = () => {
 						key={entry._id}
 						latitude={entry.latitude}
 						longitude={entry.longitude}
+						offsetLeft={-10}
+						offsetTop={-30}
 					>
 						<div
 							onClick={() =>
@@ -65,11 +67,12 @@ const App = () => {
 						<Popup
 							latitude={entry.latitude}
 							longitude={entry.longitude}
-							closeButton={true}
-							closeOnClick={false}
+							closeButton={false}
+							closeOnClick={true}
 							dynamicPosition={true}
 							onClose={() => setShowPopup({})}
-							anchor="bottom"
+							anchor="top"
+							color
 						>
 							<div>
 								<h3>{entry.title}</h3>
@@ -87,6 +90,8 @@ const App = () => {
 					<Marker
 						latitude={addEntryLocation.latitude}
 						longitude={addEntryLocation.longitude}
+						offsetLeft={-10}
+						offsetTop={-30}
 					>
 						<div>
 							<img
@@ -100,11 +105,11 @@ const App = () => {
 					<Popup
 						latitude={addEntryLocation.latitude}
 						longitude={addEntryLocation.longitude}
-						closeButton={true}
-						closeOnClick={false}
+						closeButton={false}
+						closeOnClick={true}
 						dynamicPosition={true}
 						onClose={() => setAddEntryLocation(null)}
-						anchor="bottom"
+						anchor="top"
 					>
 						<div>
 							<h3>Add entry</h3>
