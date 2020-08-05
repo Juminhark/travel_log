@@ -15,7 +15,7 @@ const logEntrySchema = new Schema(
 		title: { type: String, required: true },
 		description: String,
 		comments: String,
-		Image: String,
+		image: String,
 		rating: {
 			type: Number,
 			min: 0,
@@ -34,8 +34,8 @@ const logEntrySchema = new Schema(
 			min: -180,
 			max: 180,
 		},
-		created_at: { type: Date, default: Date.now, required: true },
-		updated_at: { type: Date, default: Date.now, required: true },
+		createdAt: { type: Date, default: Date.now, required: true },
+		updatedAt: { type: Date, default: Date.now, required: true },
 		visitDate: {
 			required: true,
 			type: Date,

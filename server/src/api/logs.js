@@ -1,7 +1,5 @@
 import Router from 'express';
-
 import LogEntry from '../models/LogEntry';
-import { nextTick } from 'process';
 
 const router = Router();
 

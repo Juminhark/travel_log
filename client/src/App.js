@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 
-import listLogEntries from './API';
+import { listLogEntries } from './API';
+import LogEntryForm from './LogEntryForm';
 
 const App = () => {
 	const [logEntries, setLogEntries] = useState([]);
@@ -15,11 +16,14 @@ const App = () => {
 		zoom: 12,
 	});
 
+	const getEntries = async () => {
+		const logEntries = await listLogEntries();
+		setLogEntries(logEntries);
+		console.log(logEntries);
+	};
+
 	useEffect(() => {
-		(async () => {
-			const logEntries = await listLogEntries();
-			setLogEntries(logEntries);
-		})();
+		getEntries();
 	}, []);
 
 	const showAddMarkerPopup = (event) => {
@@ -40,9 +44,8 @@ const App = () => {
 			onDblClick={showAddMarkerPopup}
 		>
 			{logEntries.map((entry) => (
-				<>
+				<React.Fragment key={entry._id}>
 					<Marker
-						key={entry._id}
 						latitude={entry.latitude}
 						longitude={entry.longitude}
 						offsetLeft={-10}
@@ -67,8 +70,8 @@ const App = () => {
 						<Popup
 							latitude={entry.latitude}
 							longitude={entry.longitude}
-							closeButton={false}
-							closeOnClick={true}
+							closeButton={true}
+							closeOnClick={false}
 							dynamicPosition={true}
 							onClose={() => setShowPopup({})}
 							anchor="top"
@@ -80,10 +83,13 @@ const App = () => {
 								<small>
 									Visited on : {new Date(entry.visitDate).toLocaleDateString()}
 								</small>
+								{entry.image && (
+									<img className="image" src={entry.image} alt={entry.title} />
+								)}
 							</div>
 						</Popup>
 					) : null}
-				</>
+				</React.Fragment>
 			))}
 			{addEntryLocation ? (
 				<>
@@ -105,14 +111,20 @@ const App = () => {
 					<Popup
 						latitude={addEntryLocation.latitude}
 						longitude={addEntryLocation.longitude}
-						closeButton={false}
-						closeOnClick={true}
+						closeButton={true}
+						closeOnClick={false}
 						dynamicPosition={true}
 						onClose={() => setAddEntryLocation(null)}
 						anchor="top"
 					>
-						<div>
-							<h3>Add entry</h3>
+						<div className="popup">
+							<LogEntryForm
+								onClose={() => {
+									setAddEntryLocation(null);
+									getEntries();
+								}}
+								location={addEntryLocation}
+							/>
 						</div>
 					</Popup>
 				</>

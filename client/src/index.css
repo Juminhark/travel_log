@@ -7,3 +7,29 @@ body {
 	width: 100vw;
 	overflow: hidden;
 }
+
+.popup {
+	width: 40vw;
+	padding: 1rem;
+}
+
+.image {
+	height: 300px;
+	width: auto;
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+}
+
+.entry-form label,
+.entry-form input,
+.entry-form textarea,
+.entry-form button {
+	font-size: 1rem;
+	margin: 0.5rem 0;
+	display: block;
+	width: 100%;
+}
+.error {
+	color: brown;
+}
