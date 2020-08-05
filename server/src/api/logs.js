@@ -1,5 +1,10 @@
 import Router from 'express';
 import LogEntry from '../models/LogEntry';
+import dotenv from 'dotenv';
+// .env
+dotenv.config();
+
+const { API_KEY } = process.env;
 
 const router = Router();
 
@@ -14,6 +19,10 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
 	try {
+		if (req.get('X-API-KEY') !== API_KEY) {
+			res.status(401);
+			throw new Error('UnAuthorized');
+		}
 		const logEntry = new LogEntry(req.body);
 		const createdEntry = await logEntry.save();
 		res.json(createdEntry);
