@@ -1,5 +1,9 @@
 # [travel_log](https://www.youtube.com/watch?v=5pQsl9u_10M)
 
+## tool
+ - server : mongoose express
+ - client : react mapbox
+
 ### todo
 
 - [x] Setup Server
